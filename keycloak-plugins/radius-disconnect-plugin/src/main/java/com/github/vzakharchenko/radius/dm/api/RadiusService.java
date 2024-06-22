@@ -2,7 +2,6 @@ package com.github.vzakharchenko.radius.dm.api;
 
 import com.github.vzakharchenko.radius.dm.models.RadiusInfoModel;
 import com.github.vzakharchenko.radius.dm.models.RadiusServiceModel;
-import org.jboss.resteasy.annotations.cache.NoCache;
 import org.keycloak.models.ClientModel;
 import org.keycloak.services.resource.RealmResourceProvider;
 import org.keycloak.utils.MediaType;
@@ -31,7 +30,6 @@ public interface RadiusService extends RealmResourceProvider {
      */
     @GET
     @Path("v1/radius/users")
-    @NoCache
     @Produces(MediaType.APPLICATION_JSON)
     RadiusServiceModel getActiveUser(@QueryParam("ip")  String ip,
                                      @QueryParam("calledStationId")  String calledStationId);
@@ -48,7 +46,6 @@ public interface RadiusService extends RealmResourceProvider {
      */
     @GET
     @Path("v1/radius/logout")
-    @NoCache
     @Produces(MediaType.APPLICATION_JSON)
     RadiusServiceModel logout(@QueryParam("ip")  String ip,
                               @QueryParam("calledStationId")  String calledStationId);
@@ -65,7 +62,6 @@ public interface RadiusService extends RealmResourceProvider {
      */
     @GET
     @Path("v1/radius/info")
-    @NoCache
     @Produces(MediaType.APPLICATION_JSON)
     RadiusInfoModel getRadiusInfo(
             @QueryParam("calledStationId")  String calledStationId);
